@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-	class Game
+	public class Game
 	{
 		public Player PlayerOne { get; set; }
 		public Player PlayerTwo { get; set; }
@@ -33,7 +33,7 @@ namespace Lab04_TicTacToe.Classes
 
 			//TODO: Complete this method and utilize the rest of the class structure to play the game.
 
-            /*
+			/*
              * Complete this method by constructing the logic for the actual playing of Tic Tac Toe. 
              * 
              * A few things to get you started:
@@ -47,6 +47,14 @@ namespace Lab04_TicTacToe.Classes
 
             Use any and all pre-existing methods in this program to help construct the method logic. 
              */
+
+			Console.WriteLine("Welcome to TicTacToe");
+
+			while (Winner == null) { 
+				Board.DisplayBoard();
+				return PlayerOne;
+			}
+			return PlayerOne;
 		}
 
 

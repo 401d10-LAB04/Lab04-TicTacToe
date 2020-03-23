@@ -1,4 +1,5 @@
 ﻿using System;
+using Lab04_TicTacToe.Classes;
 
 namespace Lab04_TicTacToe
 {
@@ -6,7 +7,10 @@ namespace Lab04_TicTacToe
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Player player1 = new Player();
+            Player player2 = new Player();
+            Game myGame = new Game(player1, player2);
+            myGame.Play();
         }
 
         // TODO: Setup your game. Create a new method that creates your players and instantiates the game class. Call that method in your Main method.
