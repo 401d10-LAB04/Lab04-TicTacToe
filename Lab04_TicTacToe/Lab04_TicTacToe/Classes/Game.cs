@@ -50,48 +50,11 @@ namespace Lab04_TicTacToe.Classes
 
 			Console.WriteLine("Welcome to TicTacToe");
 
-			Console.WriteLine("Player 1, what is your name?");
-			PlayerOne.Name = Console.ReadLine();
-			PlayerOne.Marker = "X";
-
-			Console.WriteLine("Player 2, what is your name?");
-			PlayerTwo.Name = Console.ReadLine();
-			PlayerTwo.Marker = "O";
-
-			Console.WriteLine($"{PlayerOne.Name} is {PlayerOne.Marker} and {PlayerTwo.Name} is {PlayerTwo.Marker}. GLHF!");
-
-			int turnCount = 0;
-
-			while (Winner == null && turnCount < 9) { 
+			while (Winner == null) { 
 				Board.DisplayBoard();
-
-				SwitchPlayer();
-
-				if (PlayerOne.IsTurn)
-				{
-					PlayerOne.TakeTurn(Board);
-				}
-				else
-				{
-					PlayerTwo.TakeTurn(Board);
-				}
-
-				turnCount++;
-
-				if (CheckForWinner(Board))
-				{
-					if (PlayerOne.IsTurn)
-					{
-						Winner = PlayerOne;
-					}
-					else
-					{
-						Winner = PlayerTwo;
-					}
-				}
+				return PlayerOne;
 			}
-			Board.DisplayBoard();
-			return Winner;
+			return PlayerOne;
 		}
 
 
@@ -127,11 +90,9 @@ namespace Lab04_TicTacToe.Classes
 				string b = Board.GameBoard[p2.Row, p2.Column];
 				string c = Board.GameBoard[p3.Row, p3.Column];
 
+				// TODO:  Determine a winner has been reached. 
 				// return true if a winner has been reached. 
-				if (a == b && b == c)
-				{
-					return true;
-				}
+			
 			}
 
 			return false;
@@ -154,7 +115,10 @@ namespace Lab04_TicTacToe.Classes
 		{
 			if (PlayerOne.IsTurn)
 			{
+              
 				PlayerOne.IsTurn = false;
+
+              
 				PlayerTwo.IsTurn = true;
 			}
 			else
@@ -163,5 +127,7 @@ namespace Lab04_TicTacToe.Classes
 				PlayerTwo.IsTurn = false;
 			}
 		}
+
+
 	}
 }
