@@ -22,6 +22,8 @@ namespace Lab04_TicTacToe.Classes
 			PlayerOne = p1;
 			PlayerTwo = p2;
 			Board = new Board();
+			PlayerOne.Marker = "X";
+			PlayerTwo.Marker = "O";
 		}
 
 		/// <summary>
@@ -30,33 +32,12 @@ namespace Lab04_TicTacToe.Classes
 		/// <returns>Winner</returns>
 		public Player Play()
 		{
-
-			//TODO: Complete this method and utilize the rest of the class structure to play the game.
-
-			/*
-             * Complete this method by constructing the logic for the actual playing of Tic Tac Toe. 
-             * 
-             * A few things to get you started:
-            1. A turn consists of a player picking a position on the board with their designated marker. 
-            2. Display the board after every turn to show the most up to date state of the game
-            3. Once a Winner is determined, display the board one final time and return a winner
-
-            Few additional hints:
-                Be sure to keep track of the number of turns that have been taken to determine if a draw is required
-                and make sure that the game continues while there are unmarked spots on the board. 
-
-            Use any and all pre-existing methods in this program to help construct the method logic. 
-             */
-
 			Console.WriteLine("Welcome to TicTacToe");
-
 			Console.WriteLine("Player 1, what is your name?");
 			PlayerOne.Name = Console.ReadLine();
-			PlayerOne.Marker = "X";
-
+			
 			Console.WriteLine("Player 2, what is your name?");
 			PlayerTwo.Name = Console.ReadLine();
-			PlayerTwo.Marker = "O";
 
 			Console.WriteLine($"{PlayerOne.Name} is {PlayerOne.Marker} and {PlayerTwo.Name} is {PlayerTwo.Marker}. GLHF!");
 
@@ -65,7 +46,7 @@ namespace Lab04_TicTacToe.Classes
 			while (Winner == null && turnCount < 9) { 
 				Board.DisplayBoard();
 
-				SwitchPlayer();
+				SwitchPlayer(); // Switches IsTurn properties of player objects
 
 				if (PlayerOne.IsTurn)
 				{
